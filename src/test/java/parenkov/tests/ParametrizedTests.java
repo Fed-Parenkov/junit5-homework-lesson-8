@@ -36,7 +36,6 @@ public class ParametrizedTests {
         System.out.println();
     }
 
-
     @CsvSource(value = {
             "01; Tesla; Elon Musk; elon; 123456789",
             "02; Apple; Tim Cook; cook; 123456789",
