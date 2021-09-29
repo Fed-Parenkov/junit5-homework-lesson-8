@@ -35,33 +35,49 @@ public class ParametrizedTests {
         System.out.println();
     }
 
-    @ParameterizedTest(name = "Check : {0}")
-    @CsvSource(value = {"Ananas 10", "Bananas 20", "Apple 30"})
-    void csvSourceTest(String fruitName, int fruitPrice) {
-        Configuration.startMaximized = true;
-        open("https://www.jotform.com/build/212703357443351");
-        $("#input_4").setValue("Ivan");
-        $("#input_5").setValue("ivan@mail.com");
-        $("#input_8_area").setValue("+7");
-        $("#input_8_phone").setValue("1234567890");
-        $("#input_2").click();
-    }
+//    @ParameterizedTest(name = "Check : {0}")
+//    @CsvSource(value = {"Ananas 10", "Bananas 20", "Apple 30"})
+//    void csvSourceTest(String fruitName, int fruitPrice) {
+//        Configuration.startMaximized = true;
+//        open("https://www.jotform.com/build/212703357443351");
+//        $("#input_4").setValue("Ivan");
+//        $("#input_5").setValue("ivan@mail.com");
+//        $("#input_8_area").setValue("+7");
+//        $("#input_8_phone").setValue("1234567890");
+//        $("#input_2").click();
+//    }
 
 
 
     @Test
         void googleTest(){
         Configuration.startMaximized = true;
-        open("https://www.jotform.com/build/212703357443351");
-        $("#input_4").setValue("Ivan");
-        $("#input_5").setValue("ivan@mail.com");
-        $("#input_8_area").setValue("+7");
-        $("#input_8_phone").setValue("1234567890");
-        $("#input_2").click();
+//        open("https://www.jotform.com/build/212703357443351");
+//        $("#input_4").setValue("Ivan");
+//        $("#input_5").setValue("ivan@mail.com");
+//        $("#input_8_area").setValue("+7");
+//        $("#input_8_phone").setValue("1234567890");
+//        $("#input_2").click();
+
+//        open("https://www.tutorialrepublic.com/" +
+//                "snippets/preview.php?topic=bootstrap&file=elegant-contact-form");
+//        $("#inputName").setValue("Ivan");
+//        $("#inputEmail").setValue("ivan@mail.com");
+//        $("#inputPhone").setValue("1234567890");
+//        $("#inputPhone").setValue("Test");
+//        $("#inputMessage").setValue("Test Test Test");
+//        $("button").click();
 
 
+        open("https://www.w3docs.com/tools/editor/5872");
+        $("[placeholder='Full name']").setValue("Ivan Petrov");
+        $("[placeholder='Email']").setValue("ivan@mail.com");
+        $("[placeholder='Phone number']").setValue("1234567890");
+        $("[placeholder='Website']").setValue("Test");
+        $("#inputMessage").setValue("Test Test Test");
+        $("form button").click();
 
-        System.out.println();
+
     }
 
 
