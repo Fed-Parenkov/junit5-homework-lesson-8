@@ -26,7 +26,7 @@ import java.util.stream.Stream;
 
 public class ParametrizedTests {
 
-    @ParameterizedTest(name = "Check switching between header menu items: {0}")
+    @ParameterizedTest(name = "Switching to the header menu item: {0}")
     @ValueSource(strings = {"Разработка", "Дизайн", "Научпоп"})
     void habrHeaderMenuTest(String menuItem) {
         Configuration.startMaximized = true;
