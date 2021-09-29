@@ -30,18 +30,19 @@ public class ParametrizedTests {
     @ValueSource(strings = {"Разработка", "Дизайн", "Научпоп"})
     void habrHeaderMenuTest(String menuItem) {
         Configuration.startMaximized = true;
+        Configuration.pageLoadStrategy = "none";
         open("https://habr.com/ru/all/");
         $(".tm-main-menu__section-content").$(byText(menuItem)).click();
         $("h1").shouldHave(text(menuItem));
         System.out.println();
     }
 
+    @ParameterizedTest(name = "Fill form with name: {2}")
     @CsvSource(value = {
             "01; Tesla; Elon Musk; elon; 123456789",
             "02; Apple; Tim Cook; cook; 123456789",
             "03; Microsoft; Bill Gates; gates; 123456789"
     }, delimiter = ';')
-    @ParameterizedTest(name = "Fill form with name: {2}")
     void fillFormTest(int testId,
                       String company,
                       String name,
@@ -63,6 +64,13 @@ public class ParametrizedTests {
         $("[type=submit]").click();
         $("h2").shouldHave(text("Welcome to your Simple In/Out free trial"));
     }
+
+    @ParameterizedTest(name = "Switching to the header menu item: {0}")
+    @EnumSource()
+    void dgdgd() {
+
+    }
+
 
 
 }
