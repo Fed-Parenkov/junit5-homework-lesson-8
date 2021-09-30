@@ -1,8 +1,11 @@
 package parenkov.header;
 
 public enum HeaderMenuItem {
-    DEVELOPING("Разработка"),
+    DEVELOPMENT("Разработка"),
+    ADMIN("Администрирование"),
     DESIGN("Дизайн"),
+    MANAGEMENT("Менеджмент"),
+    MARKETING("Маркетинг"),
     POPSCIENCE("Научпоп");
 
     private String desc;

@@ -1,5 +1,6 @@
 package parenkov.tests;
 
+import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.Configuration;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
@@ -18,6 +19,8 @@ import org.junit.jupiter.params.provider.CsvSource;
 import org.junit.jupiter.params.provider.EnumSource;
 import org.junit.jupiter.params.provider.MethodSource;
 import org.junit.jupiter.params.provider.ValueSource;
+import parenkov.header.HeaderMenuItem;
+
 import java.util.Random;
 
 
@@ -28,13 +31,11 @@ public class ParametrizedTests {
 
     @ParameterizedTest(name = "Switching to the header menu item: {0}")
     @ValueSource(strings = {"Разработка", "Дизайн", "Научпоп"})
-    void habrHeaderMenuTest(String menuItem) {
+    void habrHeaderMenuVSTest(String menuItem) {
         Configuration.startMaximized = true;
-        Configuration.pageLoadStrategy = "none";
         open("https://habr.com/ru/all/");
         $(".tm-main-menu__section-content").$(byText(menuItem)).click();
         $("h1").shouldHave(text(menuItem));
-        System.out.println();
     }
 
     @ParameterizedTest(name = "Fill form with name: {2}")
@@ -66,11 +67,21 @@ public class ParametrizedTests {
     }
 
     @ParameterizedTest(name = "Switching to the header menu item: {0}")
-    @EnumSource()
-    void dgdgd() {
-
+    @EnumSource(value = HeaderMenuItem.class,
+            mode = EnumSource.Mode.EXCLUDE,
+            names = {"DESIGN", "MANAGEMENT"}
+            )
+    void habrHeaderMenuESTest(HeaderMenuItem menuItem) {
+        Configuration.startMaximized = true;
+        open("https://habr.com/ru/all/");
+        $(".tm-main-menu__section-content").$(byText(menuItem.getDesc())).click();
+        $("h1").shouldHave(text(menuItem.getDesc()));
     }
 
-
+//    @ParameterizedTest(name = "Switching to the header menu item: {0}")
+//    @MethodSource()
+//    void sss() {
+//
+//    }
 
 }
